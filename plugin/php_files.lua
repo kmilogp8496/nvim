@@ -65,3 +65,20 @@ vim.api.nvim_create_user_command('PhpMoveDir', function(input)
     print(result)
   end
 end, { nargs = '+', complete = 'file' })
+
+---@param filename string
+local function setup_php_file(filename)
+  local cmd = string.format('phpactor class:transform %s --transform=fix_namespace_class_name', filename)
+  return vim.fn.system(cmd, '')
+end
+
+vim.api.nvim_create_user_command('PhpSetupFile', function(input)
+  local filename = input.args
+  print(filename)
+  if filename == '' then
+    filename = vim.api.nvim_buf_get_name(0)
+    print(filename)
+  end
+  local result = setup_php_file(filename)
+  print(result)
+end, { nargs = 1, complete = 'file' })

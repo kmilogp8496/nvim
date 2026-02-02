@@ -7,3 +7,13 @@ vim.api.nvim_create_autocmd('BufNew', {
     })
   end,
 })
+
+vim.api.nvim_create_autocmd('BufNew', {
+  pattern = '*.php',
+  callback = function(args)
+    vim.keymap.set({ 'n', 'v' }, '<leader>pc', '<Cmd>PhpSetupFile %<Cr>', {
+      buffer = args.buf,
+      desc = 'Setup [P]HP [C]lass Namespace',
+    })
+  end,
+})
