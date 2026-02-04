@@ -25,7 +25,7 @@ return {
     end,
     formatters_by_ft = {
       lua = { 'stylua' },
-      markdown = { 'prettierd', 'eslint_d', stop_after_first = true },
+      markdown = { 'eslint_d', 'prettierd', stop_after_first = true },
       typescript = { 'eslint_d', 'prettierd', stop_after_first = true },
       javascript = { 'eslint_d', 'prettierd', stop_after_first = true },
       vue = { 'eslint_d', 'prettierd', stop_after_first = true },
