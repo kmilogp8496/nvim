@@ -29,6 +29,7 @@ return {
       typescript = { 'eslint_d', 'prettierd', stop_after_first = true },
       javascript = { 'eslint_d', 'prettierd', stop_after_first = true },
       vue = { 'eslint_d', 'prettierd', stop_after_first = true },
+      json = { 'prettierd' },
     },
   },
 }
