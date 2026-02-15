@@ -6,6 +6,9 @@ return {
   event = 'InsertEnter',
   config = function()
     require('copilot').setup {
+      filetypes = {
+        ['*'] = true,
+      },
       suggestion = {
         enabled = true,
         auto_trigger = true,

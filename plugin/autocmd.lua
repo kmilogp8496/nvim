@@ -1,7 +1,7 @@
 vim.api.nvim_create_autocmd('BufNew', {
   pattern = '*.lua',
   callback = function(args)
-    vim.keymap.set({ 'n', 'v' }, '<leader>l', '<Cmd>so %<Cr>', {
+    vim.keymap.set({ 'n', 'v' }, '<leader>rl', '<Cmd>so %<Cr>', {
       buffer = args.buf,
       desc = 'Source current [L]ua file',
     })
@@ -11,7 +11,7 @@ vim.api.nvim_create_autocmd('BufNew', {
 vim.api.nvim_create_autocmd('BufNew', {
   pattern = '*.php',
   callback = function(args)
-    vim.keymap.set({ 'n', 'v' }, '<leader>rs', '<Cmd>PhpSetupFile %<Cr>', {
+    vim.keymap.set({ 'n', 'v' }, '<leader>rm', '<Cmd>PhpSetupFile %<Cr>', {
       buffer = args.buf,
       desc = '[S]etup PHP Class Namespace',
     })
