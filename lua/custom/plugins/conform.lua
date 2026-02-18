@@ -30,6 +30,7 @@ return {
       javascript = { 'eslint_d', 'prettierd', stop_after_first = true },
       vue = { 'eslint_d', 'prettierd', stop_after_first = true },
       json = { 'prettierd' },
+      php = { 'php_cs_fixer' },
     },
   },
 }
