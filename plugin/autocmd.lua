@@ -17,12 +17,3 @@ vim.api.nvim_create_autocmd('BufNew', {
     })
   end,
 })
-
-vim.api.nvim_create_autocmd('BufNew', {
-  callback = function(args)
-    vim.keymap.set({ 'n', 'v' }, '<leader>rt', '<Cmd>RunFileTest %<Cr>', {
-      buffer = args.buf,
-      desc = '[R]un [T]ests for current file',
-    })
-  end,
-})

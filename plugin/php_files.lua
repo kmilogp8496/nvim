@@ -74,11 +74,19 @@ end
 
 vim.api.nvim_create_user_command('PhpSetupFile', function(input)
   local filename = input.args
-  print(filename)
-  if filename == '' then
-    filename = vim.api.nvim_buf_get_name(0)
-    print(filename)
-  end
+  if filename == '' then filename = vim.api.nvim_buf_get_name(0) end
   local result = setup_php_file(filename)
+  print(result)
+end, { nargs = 1, complete = 'file' })
+
+-- phpactor class:new path/To/ClassName.php
+vim.api.nvim_create_user_command('PhpCreateClass', function(input)
+  local filename = input.args
+  if filename == '' then
+    print 'Usage: PhpCreateClass <path/to/ClassName.php>'
+    return
+  end
+  local cmd = string.format('phpactor class:new %s --no-interaction', filename)
+  local result = vim.fn.system(cmd, '')
   print(result)
 end, { nargs = 1, complete = 'file' })
