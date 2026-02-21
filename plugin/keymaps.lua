@@ -5,6 +5,8 @@ vim.keymap.set(
   { desc = 'Cop[y] relative [c]urrent file path (from cwd) to clipboard' }
 )
 
+vim.keymap.set('n', '<leader>yn', function() vim.fn.setreg('+', vim.fn.expand '%:t') end, { desc = 'Cop[y] current file name' })
+
 vim.keymap.set('n', '<leader>qn', vim.cmd.cnext, { desc = '[N]ext quick fix item' })
 vim.keymap.set('n', '<leader>qp', vim.cmd.cprev, { desc = '[P]revious quick fix item' })
 
