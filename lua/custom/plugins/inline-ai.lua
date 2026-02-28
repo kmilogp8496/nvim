@@ -1,11 +1,11 @@
 return {
-  'git@github.com:kmilogp/opencode.nvim',
+  'kmilogp/inline-ai.nvim',
   opts = {
     default_profile = 'fast',
     profiles = {
       fast = {
-        provider = 'cursor_agent',
-        model = 'composer-1.5',
+        provider = 'ollama',
+        model = 'qwen2.5-coder:14b',
       },
       deep = {
         provider = 'cursor_agent',
