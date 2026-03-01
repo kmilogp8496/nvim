@@ -7,8 +7,8 @@ vim.keymap.set(
 
 vim.keymap.set('n', '<leader>yn', function() vim.fn.setreg('+', vim.fn.expand '%:t') end, { desc = 'Cop[y] current file name' })
 
-vim.keymap.set('n', '<leader>qn', vim.cmd.cnext, { desc = '[N]ext quick fix item' })
-vim.keymap.set('n', '<leader>qp', vim.cmd.cprev, { desc = '[P]revious quick fix item' })
+vim.keymap.set('n', '<leader>ln', vim.cmd.cnext, { desc = '[N]ext quick fix [l]ist item' })
+vim.keymap.set('n', '<leader>lp', vim.cmd.cprev, { desc = '[P]revious quick fix [l]ist item' })
 
 -- Use InsertTimestamp command with keymap
 vim.keymap.set('i', '<C-t>', '<Cmd>InsertTimestamp<CR>', { desc = 'Insert current Unix timestamp at cursor position' })
