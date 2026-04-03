@@ -16,7 +16,11 @@ return {
         dressinginput = true,
         snacks_input = true,
       },
-      condition = function() return vim.fn.pumvisible() == 1 end,
+      condition = function()
+        local name = vim.fs.basename(vim.api.nvim_buf_get_name(0))
+        if name == '.env' or name:match '^%.env' then return true end
+        return vim.fn.pumvisible() == 1
+      end,
     },
     config = function(_, opts) require('supermaven-nvim').setup(opts) end,
   },
