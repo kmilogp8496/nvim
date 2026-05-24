@@ -51,7 +51,9 @@ local function load_files()
 end
 
 local function config_and_install_lsp_packages()
-  local capabilities = require('blink.cmp').get_lsp_capabilities()
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
+  local has_blink, blink = pcall(require, 'blink.cmp')
+  if has_blink then capabilities = blink.get_lsp_capabilities(capabilities) end
 
   for server_name, server_config in pairs(package_manager.lsp_packages) do
     server_config.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server_config.capabilities or {})
@@ -63,7 +65,10 @@ end
 
 load_files()
 
-require('mason-tool-installer').setup {
-  ensure_installed = package_manager.ensure_installed_packages,
-}
+local has_mason_tool_installer, mason_tool_installer = pcall(require, 'mason-tool-installer')
+if has_mason_tool_installer then
+  mason_tool_installer.setup {
+    ensure_installed = package_manager.ensure_installed_packages,
+  }
+end
 config_and_install_lsp_packages()
