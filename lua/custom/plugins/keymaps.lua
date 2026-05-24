@@ -10,6 +10,5 @@ vim.keymap.set('n', '<leader>yn', function() vim.fn.setreg('+', vim.fn.expand '%
 vim.keymap.set('n', '<leader>ln', vim.cmd.cnext, { desc = '[N]ext quick fix [l]ist item' })
 vim.keymap.set('n', '<leader>lp', vim.cmd.cprev, { desc = '[P]revious quick fix [l]ist item' })
 
--- Use InsertTimestamp command with keymap
 vim.keymap.set('i', '<C-t>', '<Cmd>InsertTimestamp<CR>', { desc = 'Insert current Unix timestamp at cursor position' })
 vim.keymap.set('n', '<leader>tc', '<Cmd>InsertTimestamp<CR>', { desc = 'Insert [C]urrent Unix [T]imestamp at cursor position' })

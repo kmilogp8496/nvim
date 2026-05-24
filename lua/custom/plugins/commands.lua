@@ -1,4 +1,3 @@
--- Command for inserting unix timestamp into the cursor position
 vim.api.nvim_create_user_command('InsertTimestamp', function()
   local timestamp = os.time()
   vim.api.nvim_put({ tostring(timestamp) }, '', true, true)

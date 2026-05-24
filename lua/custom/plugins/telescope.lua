@@ -1,3 +1,7 @@
+vim.pack.add {
+  'https://github.com/nvim-telescope/telescope-live-grep-args.nvim',
+}
+
 local has_telescope, telescope = pcall(require, 'telescope')
 if not has_telescope then return end
 

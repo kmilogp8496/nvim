@@ -21,7 +21,6 @@ local test_ending_commands = {
   ['Test.php'] = { cmd = commands['php-unit'] },
   ['Context.php'] = {
     cmd = commands['php-behaviour'],
-    ---@param filename string
     refine_file = function(filename) return filename:gsub('Context.php$', '.feature'):gsub('Context/', '') end,
   },
   ['UseCase.php'] = {
@@ -46,7 +45,6 @@ local function get_test_command(filename)
     if filename:sub(-#ending) == ending then
       if command.refine_file then
         local refined_filename = command.refine_file(filename)
-
         if nil == refined_filename then
           vim.notify('Could not extract test name from file: ' .. filename, vim.log.levels.ERROR)
           return nil
@@ -54,6 +52,7 @@ local function get_test_command(filename)
 
         filename = refined_filename
       end
+
       return vim.list_extend(vim.deepcopy(command.cmd), { filename })
     end
   end
