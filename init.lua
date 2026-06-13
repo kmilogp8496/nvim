@@ -329,9 +329,9 @@ local function prequire(module)
 
   if not missing_plugin_modules[module] then
     missing_plugin_modules[module] = true
-    vim.schedule(function()
-      vim.notify(("Missing plugin module '%s'. Run :lua vim.pack.update() to install declared plugins."):format(module), vim.log.levels.WARN)
-    end)
+    vim.schedule(
+      function() vim.notify(("Missing plugin module '%s'. Run :lua vim.pack.update() to install declared plugins."):format(module), vim.log.levels.WARN) end
+    )
   end
 
   return nil
